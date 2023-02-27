@@ -14,7 +14,7 @@ export default {
     try {
       if (process.env.NODE_ENV === "production") {
         await store.dispatch("store/fetchData", {
-          url: "/b/5f4bc59a993a2e110d39a747",
+          url: "v3/b/5f4bc59a993a2e110d39a747",
           lang: "en",
         });
         return;
