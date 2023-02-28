@@ -8,6 +8,9 @@ export default {
    ** See https://nuxtjs.org/api/configuration-target
    */
   target: "static",
+  router: {
+    base: "/ivan-jovkovic/"
+  },
   server: {
     port: 8000,
     host: "0.0.0.0"
