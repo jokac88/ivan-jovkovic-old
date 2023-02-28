@@ -8,9 +8,9 @@
       <div class="languages-wrapper">
         <div
           v-for="language in languages"
-          :key="language.language || language.jezik"
+          :key="language.language"
         >
-          <p class="language">{{ language.language || language.jezik }}</p>
+          <p class="language">{{ language.language }}</p>
           <div class="meter">
             <span
               :style="{
@@ -20,7 +20,7 @@
               }"
             ></span>
           </div>
-          <p class="level">{{ language.level || language.nivo }}</p>
+          <p class="level">{{ language.level }}</p>
         </div>
       </div>
     </b-collapse>

@@ -1,19 +1,28 @@
 <template>
   <section class="default-layout">
-    <Background />
-    <Pace />
-    <NavBar />
-    <SideNav :navigation="navigation" />
-    <ContactMe :personalInfo="personalInfo" />
-    <ColorModePicker />
-    <CloseSideNav />
-    <BackToTop :active="isScroll" />
-    <Nuxt />
+
+    <Background/>
+
+    <Pace/>
+
+    <NavBar/>
+
+    <SideNav :navigation="navigation"/>
+
+    <ContactMe :personalInfo="personalInfo"/>
+
+    <ColorModePicker/>
+
+    <CloseSideNav/>
+
+    <BackToTop :active="isScroll"/>
+
+    <Nuxt/>
   </section>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import {mapState} from "vuex";
 import Background from "@/components/Background.vue";
 import Pace from "@/components/Pace.vue";
 import NavBar from "@/components/NavBar.vue";
@@ -49,21 +58,15 @@ export default {
   },
   computed: {
     ...mapState({
-      personalInfo: (state) =>
-        state.store.data.personalInfo || state.store.data.ličniPodaci,
-      navigation: (state) =>
-        state.store.data.navigation || state.store.data.navigacija,
+      personalInfo: (state) => state.store.data['personal-info'],
+      navigation: (state) => state.store.data.navigation,
       isLoading: (state) => state.store.isLoading,
       isToggle: (state) => state.store.isToggle,
     }),
   },
   methods: {
     scroll() {
-      if (window.scrollY <= 600) {
-        this.isScroll = false;
-      } else {
-        this.isScroll = true;
-      }
+      this.isScroll = window.scrollY > 600;
     },
     onResize() {
       const body = document.querySelector("body");
@@ -75,8 +78,8 @@ export default {
     },
   },
   mounted() {
-    document.addEventListener("scroll", this.scroll, { passive: true });
-    window.addEventListener("resize", this.onResize, { passive: true });
+    document.addEventListener("scroll", this.scroll, {passive: true});
+    window.addEventListener("resize", this.onResize, {passive: true});
   },
 };
 </script>

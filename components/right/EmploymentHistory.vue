@@ -8,10 +8,10 @@
       <div class="employment-history-wrapper">
         <b-row
           v-for="(employmentHistory, index) in employmentHistories"
-          :key="employmentHistory.year || employmentHistory.godina"
+          :key="employmentHistory.year"
         >
           <b-col
-            v-if="key === 'year' || key === 'godina' || key === 'company' || key === 'firma' || key === 'club' || key === 'klub'"
+            v-if="key === 'year' || key === 'company' || key === 'club'"
             v-for="(value, key, index) in employmentHistory"
             :key="index"
             sm="6"
@@ -19,7 +19,7 @@
             <p class="property">{{ key | capitalize }}</p>
             <p v-html="value" class="value"></p>
           </b-col>
-          <b-col v-else-if="key === 'position' || key === 'pozicija'" cols="12">
+          <b-col v-else-if="key === 'position'" cols="12">
             <p class="property">{{ key | capitalize }}</p>
             <p v-html="value" class="value"></p>
           </b-col>

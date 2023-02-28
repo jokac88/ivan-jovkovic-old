@@ -23,19 +23,19 @@ export const mutations = {
 };
 
 export const actions = {
-  async fetchData({ commit, dispatch }, { url, lang }) {
+  async fetchData({commit, dispatch}, {url}) {
     commit("SET_LOADING", true);
     const response = await axios.getData(url);
     if (process.env.NODE_ENV === "production") {
-      commit("SET_DATA", response.data[lang]);
+      commit("SET_DATA", response.data.record);
     } else {
       commit("SET_DATA", response.data);
     }
     if (response.status === 200) {
-      dispatch("loading", { loading: false, duration: 1500 });
+      dispatch("loading", {loading: false, duration: 1500});
     }
   },
-  loading({ commit }, { loading, duration }) {
+  loading({commit}, {loading, duration}) {
     setTimeout(() => {
       commit("SET_LOADING", loading);
     }, duration);

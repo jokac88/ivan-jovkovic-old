@@ -9,9 +9,9 @@
         <b-row>
           <Project
             v-for="project in projects"
-            :key="project.project || project.projekat"
+            :key="project.project"
             :project="project"
-            :projectImage="project.image || project.slika"
+            :projectImage="project.image"
           />
         </b-row>
       </div>

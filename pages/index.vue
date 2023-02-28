@@ -1,27 +1,25 @@
 <template>
-  <Page :data="data" />
+  <Page :data="data"/>
 </template>
 
 <script>
 import Page from "@/components/Page.vue";
-import { mapState } from "vuex";
+import {mapState} from "vuex";
 
 export default {
   components: {
     Page,
   },
-  async fetch({ store, params, error }) {
+  async fetch({store, error}) {
     try {
       if (process.env.NODE_ENV === "production") {
         await store.dispatch("store/fetchData", {
-          url: "v3/b/5f4bc59a993a2e110d39a747",
-          lang: "en",
+          url: "v3/b/5f4bc59a993a2e110d39a747"
         });
         return;
       }
       await store.dispatch("store/fetchData", {
-        url: params.lang || "/en",
-        lang: "/en",
+        url: "/en"
       });
     } catch (e) {
       error({

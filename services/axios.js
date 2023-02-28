@@ -6,8 +6,7 @@ const apiClient = axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    "secret-key":
-      "$2b$10$R0nesHzmEQ.EahBk41qoM.brEN52rEnjvyT4ex6SrLq2zNsPcZaE.",
+    "X-Master-Key": "$2b$10$R0nesHzmEQ.EahBk41qoM.brEN52rEnjvyT4ex6SrLq2zNsPcZaE.",
   },
 });
 

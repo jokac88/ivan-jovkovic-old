@@ -8,27 +8,27 @@
       <div class="personal-info-wrapper">
         <p v-if="$route.path === '/'" class="property">Date of birth</p>
         <p v-else class="property">Datum rođenja</p>
-        <p class="value" v-html="personalInfo.dateOfBirth || personalInfo.datumRođenja"></p>
+        <p class="value" v-html="personalInfo['date-of-birth']"></p>
 
         <p v-if="$route.path === '/'" class="property">City</p>
         <p v-else class="property">Grad</p>
-        <p class="value">{{ personalInfo.city || personalInfo.grad }}</p>
+        <p class="value">{{ personalInfo.city }}</p>
 
         <p v-if="$route.path === '/'" class="property">Nationality</p>
         <p v-else class="property">Državljanstvo</p>
-        <p class="value">{{ personalInfo.nationality || personalInfo.državljanstvo }}</p>
+        <p class="value">{{ personalInfo.nationality }}</p>
 
         <p v-if="$route.path === '/'" class="property">Residence</p>
         <p v-else class="property">Prebivalište</p>
-        <p class="value">{{ personalInfo.residence || personalInfo.prebivalište }}</p>
+        <p class="value">{{ personalInfo.residence }}</p>
 
         <p v-if="$route.path === '/'" class="property">Mobile</p>
         <p v-else class="property">Mobilni</p>
         <a
-          v-for="mobile in personalInfo.mobile || personalInfo.mobilni"
-          :href="'tel:' + [mobile.number || mobile.broj]"
+          v-for="mobile in personalInfo.mobile"
+          :href="'tel:' + mobile.number"
           class="value link"
-        >{{ mobile.text || mobile.tekst }}</a>
+        >{{ mobile.text }}</a>
 
         <p class="property">E-mail</p>
         <a

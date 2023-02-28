@@ -8,7 +8,7 @@
       <b-row>
         <TechnicalSkill
           v-for="technology in technicalSkills"
-          :key="technology.technology || technology.tehnologija"
+          :key="technology.technology"
           :technology="technology"
         />
       </b-row>

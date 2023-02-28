@@ -14,14 +14,12 @@ export default {
     try {
       if (process.env.NODE_ENV === "production") {
         await store.dispatch("store/fetchData", {
-          url: "v3/b/5f4bc5b2993a2e110d39a754",
-          lang: "rs",
+          url: "v3/b/5f4bc5b2993a2e110d39a754"
         });
         return;
       }
       await store.dispatch("store/fetchData", {
-        url: "/rs",
-        lang: "/rs",
+        url: "/rs"
       });
     } catch (e) {
       error({

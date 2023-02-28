@@ -1,70 +1,67 @@
 <template>
   <b-container class="p-0">
+
     <section
       id="page"
       class="page"
       v-touch:swipe.right="swipeRight"
       :class="{ isToggle: isToggle }"
     >
+
       <b-col class="page-col border-gradient" lg="10">
+
         <b-row no-gutters>
+
           <!-- Left -->
           <b-col md="5" lg="4" class="left">
+
             <!-- Picture -->
-            <Picture
-              :picture="data.picture || data.slika"
-              :name="data.name || data.ime"
-            />
+            <Picture :picture="data.picture" :name="data.name"/>
 
             <!-- Name -->
-            <Name :name="data.name || data.ime" />
+            <Name :name="data.name"/>
 
             <!-- Headline -->
-            <Headline :headline="data.headline || data.naslov" />
+            <Headline :headline="data.headline"/>
 
             <!-- QR Code -->
-            <QrCode />
+            <QrCode/>
 
             <!-- Portfolio -->
-            <Portfolio />
+            <Portfolio/>
 
             <!-- Personal Info -->
-            <PersonalInfo
-              :personalInfo="data.personalInfo || data.ličniPodaci"
-            />
+            <PersonalInfo :personalInfo="data['personal-info']" />
 
             <!-- Languages -->
-            <Languages :languages="data.languages || data.jezici" />
+            <Languages :languages="data.languages"/>
 
             <!-- Projects -->
-            <Projects :projects="data.projects || data.projekti" />
+            <Projects :projects="data.projects"/>
 
             <!-- Hobbies -->
-            <Hobbies :hobbies="data.hobbies || data.hobiji" />
+            <Hobbies :hobbies="data.hobbies"/>
 
             <!-- Driving License -->
-            <DrivingLicense
-              :drivingLicense="data.drivingLicense || data.vozačkaDozvola"
-            />
+            <DrivingLicense :drivingLicense="data['driving-license']" />
           </b-col>
+
           <!-- Right -->
           <b-col md="7" lg="8" class="right">
+
             <div class="right-wrapper" :class="{ 'remove-pb': removePB }">
+
               <!-- About Me -->
-              <AboutMe :aboutMe="data.aboutMe || data.oMeni" />
+              <AboutMe :aboutMe="data['about-me']"/>
 
               <!-- Education -->
-              <Education :educations="data.education || data.obrazovanje" />
+              <Education :educations="data.education"/>
 
               <!-- Employment History -->
-              <EmploymentHistory
-                :employmentHistories="
-                  data.employmentHistory || data.istorijaZapošljavanja
-                "
-              />
+              <EmploymentHistory :employmentHistories="data['employment-history']"/>
 
               <TechnicalSkills
-                :technicalSkills="data.technicalSkills || data.tehničkeVeštine"
+                :technicalSkills="data['technical-skills']"
               />
               <!-- Technical Skills -->
             </div>
@@ -76,7 +73,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import {mapState} from "vuex";
 import Picture from "@/components/left/Picture.vue";
 import Name from "@/components/left/Name.vue";
 import Headline from "@/components/left/Headline.vue";
@@ -116,7 +113,7 @@ export default {
     TechnicalSkills,
   },
   methods: {
-    swipeRight(direction) {
+    swipeRight() {
       this.$store.commit("store/SET_TOGGLE");
     },
   },

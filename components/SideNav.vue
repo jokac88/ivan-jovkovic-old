@@ -13,10 +13,10 @@
       <a
         v-for="nav in navigation"
         @click="toggle"
-        :href="'#' + [nav.url || nav.link]"
+        :href="'#' + nav.url"
         class="scrollactive-item"
-        :key="nav.name || nav.ime"
-        >{{ nav.name || nav.ime }}</a
+        :key="nav.name"
+        >{{ nav.name }}</a
       >
     </scrollactive>
   </section>

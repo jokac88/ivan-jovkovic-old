@@ -3,7 +3,7 @@
     <HeaderRight :heading="$route.path === '/' ? 'Education' : 'Obrazovanje'" property="education" />
     <b-collapse id="education-collapse" visible>
       <div class="education-wrapper">
-        <b-row v-for="(education, index) in educations" :key="education.year || education.godina">
+        <b-row v-for="(education, index) in educations" :key="education.year">
           <b-col
             v-if="key !== 'description' && key !== 'opis'"
             v-for="(value, key, index) in education"
@@ -15,10 +15,10 @@
           </b-col>
           <b-col v-else cols="12">
             <p class="property">{{ key | capitalize }}</p>
-            <p class="value">{{ value.text || value.tekst }}</p>
+            <p class="value">{{ value.text}}</p>
             <ul>
               <li
-                v-for="technologies in value.technologies || value.tehnologije"
+                v-for="technologies in value.technologies"
                 :key="technologies"
               >{{ technologies }}</li>
             </ul>

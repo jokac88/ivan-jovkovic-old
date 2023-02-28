@@ -1,17 +1,17 @@
 <template>
   <b-col class="item text-center" cols="6">
     <a
-      :href="project.url || project.link"
+      :href="project.url"
       class="link"
-      :title="project.project || project.projekat"
+      :title="project.project"
       target="_blank"
     >
-      <h6 v-html="project.project || project.projekat" class="mb-3"></h6>
+      <h6 v-html="project.project" class="mb-3"></h6>
       <template v-if="projectImage">
         <img
           v-if="projectImage.slice(projectImage.length - 3) === 'png'"
           :src="require('~/assets/logo/' + projectImage)"
-          :title="project.project || project.projekat"
+          :title="project.project"
           :alt="require('~/assets/logo/' + projectImage)"
           class="icon"
         />
