@@ -103,7 +103,7 @@ export default {
     baseUrl:
       process.env.NODE_ENV === "production"
         ? "https://api.jsonbin.io/"
-        : "http://localhost:3000"
+        : "http://localhost:4000"
   },
   /*
    ** Axios module configuration
